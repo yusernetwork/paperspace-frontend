@@ -22,8 +22,12 @@
         console.log('doing it');
         const res = await fetch('https://tensorboard-n9zj9kjgpq.clg07azjl.paperspacegradient.com/sdapi/v1/txt2img', {
             method: 'POST',
-            headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt: this.prompt })
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*' // Set the appropriate origin or '*' for any origin
+            },
+            body: JSON.stringify({ prompt: this.prompt }),
         });
 
         const data = await res.json();
